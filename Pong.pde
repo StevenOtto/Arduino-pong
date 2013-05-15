@@ -1,20 +1,30 @@
 // Assign objects to classes
 Player player1;
 Player player2;
+Trainer trainer;
 
 Ball ball;
 
 Score scoreP1;
 Score scoreP2;
 
+boolean training_mode = true;
+
 // Initialize the canvas and objects
 void setup() {
   size(725, 450);
   
-  ball = new Ball(width/2, height/2, 1.5, 3, 10);
+  ball = new Ball(width/2, height/2);
   
   player1 = new Player(50, 50, 10, 60);
-  player2 = new Player(670, 50, 10, 60);
+  
+  if (training_mode){
+   trainer = new Trainer(670, 50, 10, 60);
+  }
+  
+  else {
+    player2 = new Player(670, 50, 10, 60);
+  }
   
   scoreP1 = new Score(1);
   scoreP2 = new Score(2);
@@ -28,8 +38,15 @@ void draw(){
   player1.start();
   player1.display();
   
-  player2.start();
-  player2.display();
+  if (training_mode) {
+    trainer.start();
+    trainer.display();
+  }
+  
+  else {
+    player2.start();
+    player2.display();
+  }
   
   scoreP1.display();
   scoreP2.display();

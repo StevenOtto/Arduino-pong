@@ -5,15 +5,15 @@ class Ball {
   float xpos;
   float xspeed;
   float yspeed;
-  float radius;
+  int radius;
   
   //constructor
-  Ball(float _xpos, float _ypos, float _xspeed, float _yspeed, int _radius){
+  Ball(float _xpos, float _ypos){
     xpos = _xpos;
     ypos = _ypos;
-    xspeed = _xspeed;
-    yspeed = _yspeed;
-    radius = _radius;
+    xspeed = 1.5;
+    yspeed = 3;
+    radius = 10;
   }
   
   //methods
@@ -32,11 +32,20 @@ class Ball {
     }
     
     //paddle collision
-    if ( ((xpos < 65) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  )) || ((xpos > 665 ) && ( (ypos > player2.paddleTop) && (ypos < player2.paddleBottom)  ))) {
+    if (training_mode) {
+      if ( ((xpos < 65) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
+        || ((xpos > 665 ) && ( (ypos > trainer.paddleTop) && (ypos < trainer.paddleBottom)  ))) {
       xspeed = -xspeed;
       this.increaseSpeed(1.15);
+      }
+    } else {
+      if ( ((xpos < 65) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
+        || ((xpos > 665 ) && ( (ypos > player2.paddleTop) && (ypos < player2.paddleBottom)  ))) {
+      xspeed = -xspeed;
+      this.increaseSpeed(1.15);
+      }
     }
-    
+
     //score management player 1
     if (xpos > 715 ) {
       xpos = 0.5*width;

@@ -2,9 +2,10 @@
 
 A pong clone written in processing. Easy.
 
+To active training mode, switch the boolean *training_mode* in Pong to *true*. 
+
 ## To-do
 
-* Second player
 * Arduino controller
 * Video demo
 
