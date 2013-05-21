@@ -8,4 +8,5 @@ To disable training mode, switch the boolean *training_mode* in Pong to *off*.
 
 * Arduino controller
 * Video demo
+* Documentation
 
