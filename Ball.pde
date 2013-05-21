@@ -33,13 +33,13 @@ class Ball {
     
     //paddle collision
     if (training_mode) {
-      if ( ((xpos < 65) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
+      if ( ((xpos < 65  ) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
         || ((xpos > 665 ) && ( (ypos > trainer.paddleTop) && (ypos < trainer.paddleBottom)  ))) {
       xspeed = -xspeed;
       this.increaseSpeed(1.15);
       }
     } else {
-      if ( ((xpos < 65) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
+      if ( ((xpos < 65  ) && ( (ypos > player1.paddleTop) && (ypos < player1.paddleBottom)  ))
         || ((xpos > 665 ) && ( (ypos > player2.paddleTop) && (ypos < player2.paddleBottom)  ))) {
       xspeed = -xspeed;
       this.increaseSpeed(1.15);
@@ -67,6 +67,8 @@ class Ball {
   }
   
   void respawn() {
+    xpos = 0.5*width;
+    ypos = 0.5*height;
     xspeed = 1.5;
     yspeed = 3;
   }

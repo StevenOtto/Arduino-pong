@@ -21,6 +21,11 @@ class Score {
     if (player == 2) {
       text(value, (0.5*width + 100), 50);
     }
+    
+    textSize(12);
+    if(training_mode){
+      text("Training Mode", (0.7*width), (0.95*height));
+    }
   }
   
   void increase(int _value){

@@ -1,5 +1,6 @@
 class Player extends Paddle{
   
+  //Constructor
   Player(float _xpos, float _ypos, int _paddleWidth, int _paddleHeight) {
     xpos = _xpos;
     ypos = _ypos;

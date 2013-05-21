@@ -8,6 +8,7 @@ Ball ball;
 Score scoreP1;
 Score scoreP2;
 
+//set global variables
 boolean training_mode = true;
 
 // Initialize the canvas and objects
@@ -31,7 +32,7 @@ void setup() {
   
 }
 
-// Draw 
+// Draw: game's on! 
 void draw(){
   background(0); 
   
@@ -53,7 +54,6 @@ void draw(){
   
   ball.display();
   ball.move();
-  
   
   //seperator blocks in the middle
   for (int i = 7; i < 725; i = i+25){
